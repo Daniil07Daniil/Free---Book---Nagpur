@@ -283,6 +283,321 @@
 
   footer{
     text-align: center;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ex Libris</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Cormorant+SC:wght@500;600&family=Source+Serif+4:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --forest: #1F3B2C;
+    --forest-deep: #16291F;
+    --brass: #B08D57;
+    --paper: #F3ECDD;
+    --card: #FBF7EC;
+    --ink: #2A2621;
+    --rust: #8B4B3B;
+  }
+
+  *{ box-sizing: border-box; }
+
+  body{
+    margin:0;
+    background: var(--paper);
+    background-image:
+      radial-gradient(circle at 15% 0%, rgba(31,59,44,0.05), transparent 40%),
+      radial-gradient(circle at 85% 100%, rgba(139,75,59,0.05), transparent 40%),
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+    color: var(--ink);
+    font-family: 'Source Serif 4', serif;
+    line-height: 1.6;
+  }
+
+  a { color: inherit; }
+
+  .frame{
+    max-width: 1040px;
+    margin: 18px auto;
+    padding: 20px;
+  }
+  .frame-border{
+    border: 2px solid var(--brass);
+    padding: 4px;
+  }
+  .frame-border-inner{
+    border: 1px solid var(--brass);
+  }
+
+  .wrap{
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 56px 22px 90px;
+  }
+
+  .fleuron{
+    text-align: center;
+    color: var(--brass);
+    font-size: 20px;
+    margin: 46px 0;
+    letter-spacing: 0.3em;
+  }
+
+  /* Ex-libris emblem */
+  .emblem{
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 22px;
+    border: 1.5px solid var(--brass);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+  .emblem::before, .emblem::after{
+    content: "";
+    position: absolute;
+    border: 1px solid var(--brass);
+    border-radius: 50%;
+  }
+  .emblem::before{ inset: -7px; opacity: 0.5; }
+  .emblem svg{ width: 46px; height: 46px; stroke: var(--forest); }
+
+  header.site{
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .exlibris-label{
+    font-family: 'Cormorant SC', serif;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    font-size: 13px;
+    color: var(--rust);
+    margin-bottom: 6px;
+  }
+
+  h1{
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: clamp(2.4rem, 6vw, 3.8rem);
+    margin: 0 0 18px;
+    letter-spacing: 0.01em;
+    color: var(--forest-deep);
+  }
+
+  .rule{
+    width: 64px;
+    height: 1px;
+    background: var(--brass);
+    margin: 0 auto 22px;
+  }
+
+  .tagline{
+    max-width: 540px;
+    margin: 0 auto;
+    font-size: 1.08rem;
+    font-style: italic;
+    color: #4a4038;
+  }
+
+  .creed{
+    max-width: 620px;
+    margin: 26px auto 0;
+    font-size: 0.95rem;
+    color: #5c5145;
+    text-align: left;
+  }
+  .creed::first-letter{
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 3.2em;
+    float: left;
+    line-height: 0.8;
+    padding: 4px 6px 0 0;
+    color: var(--forest-deep);
+  }
+
+  .howitworks{
+    display: flex;
+    gap: 0;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 40px 0 0;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    color: var(--forest-deep);
+  }
+  .howitworks div{
+    padding: 0 22px;
+    border-right: 1px solid rgba(31,59,44,0.25);
+  }
+  .howitworks div:last-child{ border-right: none; }
+  .howitworks b{
+    display: block;
+    font-family: 'Cormorant SC', serif;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--brass);
+    margin-bottom: 4px;
+  }
+
+  .shelf-label{
+    font-family: 'Cormorant SC', serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--forest-deep);
+    text-align: center;
+    margin: 64px 0 30px;
+    position: relative;
+  }
+  .shelf-label::before, .shelf-label::after{
+    content: "❦";
+    display: inline-block;
+    color: var(--brass);
+    font-size: 16px;
+    vertical-align: middle;
+    margin: 0 16px;
+  }
+
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+    margin-bottom: 56px;
+  }
+
+  .card{
+    background: var(--card);
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border: 1px solid var(--brass);
+    box-shadow: 3px 3px 0 rgba(31,59,44,0.12);
+    transition: box-shadow 0.18s ease;
+  }
+  .card:hover{
+    box-shadow: 5px 5px 0 rgba(139,75,59,0.18);
+  }
+
+  .cover{
+    aspect-ratio: 2 / 3;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+  .cover.placeholder{
+    padding: 22px;
+    text-align: center;
+  }
+  .cover.placeholder .cover-title{
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: #fff;
+    line-height: 1.25;
+  }
+  .cover.placeholder .cover-rule{
+    width: 28px;
+    height: 1px;
+    background: rgba(255,255,255,0.55);
+    margin: 12px auto;
+  }
+  .cover.placeholder .cover-author{
+    font-family: 'Cormorant SC', serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.75);
+  }
+
+  .card-body{
+    padding: 18px 20px 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .title-row{
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--forest-deep);
+    margin: 0 0 3px;
+  }
+
+  .author{
+    font-size: 0.82rem;
+    color: #6b6053;
+    margin: 0 0 12px;
+    font-style: italic;
+  }
+
+  .note{
+    font-size: 0.86rem;
+    color: #4a4038;
+    margin: 0 0 16px;
+    flex: 1;
+  }
+
+  .status-row{
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Cormorant SC', serif;
+    font-size: 11.5px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .dot{
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .status-row.available .dot{ background: var(--forest); }
+  .status-row.available{ color: var(--forest); }
+  .status-row.loaned .dot{ background: var(--rust); }
+  .status-row.loaned{ color: var(--rust); }
+
+  .claim{
+    font-family: 'Cormorant SC', serif;
+    font-size: 12.5px;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    background: var(--forest-deep);
+    color: var(--paper);
+    text-align: center;
+    padding: 10px 12px;
+    border-radius: 0;
+    border: 1px solid var(--forest-deep);
+    display: block;
+    text-transform: uppercase;
+  }
+  .claim.disabled{
+    background: #cabfa8;
+    color: #6b6152;
+    pointer-events: none;
+  }
+  .claim:not(.disabled):hover{ background: var(--rust); }
+
+  footer{
+    text-align: center;
     font-family: 'Cormorant Garamond', serif;
     font-style: italic;
     font-size: 14px;
@@ -299,6 +614,9 @@
 </style>
 </head>
 <body>
+<div class="frame">
+<div class="frame-border">
+<div class="frame-border-inner">
 <div class="wrap">
 
   <header class="site">
@@ -308,10 +626,10 @@
         <path d="M21 5.5C21 5.5 18.5 4 15.5 4.5C14 4.75 12 5.5 12 5.5V19C12 19 14 18.25 15.5 18C18.5 17.5 21 19 21 19V5.5Z"/>
       </svg>
     </div>
-    <p class="exlibris-label">Ex Libris · Nagpur</p>
+    <p class="exlibris-label">Ex Libris</p>
     <h1>A Shelf That Travels</h1>
     <div class="rule"></div>
-    <p class="tagline">A private shelf, opened to Nagpur. Borrow a book, sit with it, and send it back into circulation.</p>
+    <p class="tagline">A private shelf, opened to anyone who wants to read from it. Borrow a book, sit with it, and send it back into circulation.</p>
     <p class="creed">Every book here changed something in me before it reached this shelf. I'd rather it kept moving through other hands than sit still gathering dust. Read it, mark it up in your mind if not on the page, and pass it along when you're ready — someone else is always next in line.</p>
 
     <div class="howitworks">
@@ -325,8 +643,11 @@
   <div class="grid" id="bookGrid"></div>
 
   <footer>
-    A small library in Nagpur, kept by <a href="https://www.instagram.com/prajwal.thakare07" target="_blank" rel="noopener">@prajwal.thakare07</a>
+    A small library, kept by <a href="https://www.instagram.com/prajwal.thakare07" target="_blank" rel="noopener">@prajwal.thakare07</a>
   </footer>
+</div>
+</div>
+</div>
 </div>
 
 <script>
@@ -345,7 +666,7 @@
   // ============================================
 
   const books = [
-    { title: "Can't Hurt Me", author: "David Goggins", note: "Mastering the mind through raw willpower.", available: true, cover: "Can't hurt me.jpg", spineColor: "#2E2E2E" },
+    { title: "Can't Hurt Me", author: "David Goggins", note: "Mastering the mind through raw willpower.", available: true, cover: "", spineColor: "#2E2E2E" },
     { title: "Autobiography of a Yogi", author: "Paramahansa Yogananda", note: "A life among saints, sages, and the search for the divine.", available: true, cover: "", spineColor: "#A67C3D" },
     { title: "The Art of Laziness", author: "Library Mindset", note: "Working with your nature instead of against it.", available: true, cover: "", spineColor: "#3F5B44" },
     { title: "Atomic Habits", author: "James Clear", note: "Small habits, compounded.", available: true, cover: "", spineColor: "#2C4A5E" },
