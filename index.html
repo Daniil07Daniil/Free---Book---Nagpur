@@ -3,10 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ex Libris · Nagpur</title>
+<title>Ex Libris</title>
+<meta name="description" content="A small lending shelf. Browse the books and request one on Instagram.">
+<meta property="og:title" content="Ex Libris — A Shelf That Travels">
+<meta property="og:description" content="Browse the shelf and request a book on Instagram.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=EB+Garamond:wght@400;500&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --parchment: #F1E8D0;
@@ -26,7 +29,7 @@
       radial-gradient(circle at 15% 0%, rgba(31,59,44,0.05), transparent 40%),
       radial-gradient(circle at 85% 100%, rgba(122,46,50,0.05), transparent 40%);
     color: var(--ink);
-    font-family: 'EB Garamond', serif;
+    font-family: 'EB Garamond', Georgia, serif;
     font-size: 18px;
     line-height: 1.65;
   }
@@ -47,7 +50,7 @@
   }
   .frame-inner{
     border: 1px solid var(--brass);
-    padding: 46px 30px;
+    padding: 36px 30px;
   }
 
   /* ---------- Hero ---------- */
@@ -57,9 +60,9 @@
   }
 
   .crest{
-    width: 62px;
-    height: 62px;
-    margin: 0 auto 18px;
+    width: 54px;
+    height: 54px;
+    margin: 0 auto 8px;
     display: block;
   }
 
@@ -70,15 +73,17 @@
     letter-spacing: 0.32em;
     text-transform: uppercase;
     color: var(--burgundy);
-    margin: 0 0 10px;
+    line-height: 1.2;
+    margin: 0 0 4px;
   }
 
   h1{
-    font-family: 'Playfair Display', serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 700;
-    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    font-size: clamp(2rem, 5.5vw, 3.1rem);
+    line-height: 1.12;
     color: var(--forest);
-    margin: 0 0 16px;
+    margin: 0 0 12px;
     letter-spacing: 0.005em;
   }
 
@@ -86,11 +91,11 @@
     width: 90px;
     height: 1px;
     background: var(--brass);
-    margin: 0 auto 22px;
+    margin: 0 auto 18px;
     position: relative;
   }
   .rule::before{
-    content: "❦";
+    content: "";
     position: absolute;
     left: 50%;
     top: 50%;
@@ -103,15 +108,14 @@
 
   .tagline{
     max-width: 540px;
-    margin: 0 auto 30px;
+    margin: 0 auto 20px;
     font-size: 1.08rem;
-    font-style: italic;
     color: #3d352c;
   }
 
   .creed{
     max-width: 620px;
-    margin: 0 auto 40px;
+    margin: 0 auto 24px;
     font-size: 1rem;
     color: #3d352c;
     text-align: center;
@@ -128,12 +132,55 @@
   }
 
   /* ---------- How it works ---------- */
+  .meta-line{
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--brass);
+    margin: 0 0 26px;
+  }
+
+  .promise{
+    max-width: 520px;
+    margin: 0 auto 28px;
+    padding: 22px 26px;
+    border-top: 1px solid var(--brass);
+    border-bottom: 1px solid var(--brass);
+    text-align: center;
+  }
+  .promise-label{
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 10px;
+  }
+  .promise p{
+    margin: 0 0 10px;
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--forest);
+  }
+  .promise-sign{
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--brass);
+  }
+
   .howitworks{
     display: flex;
     justify-content: center;
     gap: 0;
     flex-wrap: wrap;
-    margin: 0 0 56px;
+    margin: 0 0 22px;
   }
   .howitworks div{
     padding: 0 26px;
@@ -152,9 +199,17 @@
     margin-bottom: 6px;
   }
   .howitworks span{
-    font-family: 'Playfair Display', serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-size: 1.1rem;
     color: var(--forest);
+  }
+
+  .invite{
+    text-align: center;
+    font-family: 'Libre Baskerville', Georgia, serif;
+    font-size: 1.05rem;
+    color: var(--burgundy);
+    margin: 0 0 30px;
   }
 
   .shelf-label{
@@ -165,7 +220,7 @@
     letter-spacing: 0.2em;
     color: var(--forest);
     text-align: center;
-    margin: 0 0 34px;
+    margin: 0 0 26px;
   }
   .shelf-label::before, .shelf-label::after{
     content: "—";
@@ -236,7 +291,7 @@
     text-align: center;
   }
   .monogram-letter{
-    font-family: 'Playfair Display', serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 700;
     font-size: 2.6rem;
     color: var(--forest);
@@ -266,7 +321,7 @@
   }
 
   .title-row{
-    font-family: 'Playfair Display', serif;
+    font-family: 'Libre Baskerville', Georgia, serif;
     font-weight: 700;
     font-size: 1.2rem;
     color: var(--forest);
@@ -278,7 +333,6 @@
   .author{
     font-size: 0.92rem;
     color: #5c5145;
-    font-style: italic;
     text-align: center;
     margin: 0 0 12px;
   }
@@ -334,8 +388,7 @@
 
   footer{
     text-align: center;
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
+    font-family: 'EB Garamond', Georgia, serif;
     font-size: 1rem;
     color: #5c5145;
     margin-top: 46px;
@@ -382,6 +435,24 @@
     0%,100%{ transform: translateX(-50%) translateY(0); }
     50%{ transform: translateX(-50%) translateY(4px); }
   }
+
+  .keeper{ margin-top: 50px; }
+
+  @media (max-width: 600px){
+    .crest{ display: none; }
+    .exlibris-mark{ font-size: 11px; }
+    h1{ font-size: 1.9rem; margin-bottom: 8px; }
+    .rule{ margin-bottom: 12px; }
+    .tagline{ font-size: 0.95rem; line-height: 1.5; margin: 0 auto 14px; }
+    .howitworks{ flex-direction: row; gap: 0; margin: 0 0 18px; }
+    .howitworks div{ padding: 0 10px; border-right: 1px solid rgba(31,59,44,0.25); border-bottom: none; }
+    .howitworks div:last-child{ border-right: none; padding-bottom: 0; }
+    .howitworks b{ font-size: 9px; margin-bottom: 2px; }
+    .howitworks span{ font-size: 0.82rem; }
+    .shelf-label{ margin-bottom: 18px; }
+    .frame-inner{ padding-top: 18px; }
+  }
+  .rule::before{ display: none; }
 </style>
 </head>
 <body>
@@ -397,14 +468,10 @@
     <p class="exlibris-mark">Ex Libris</p>
     <h1>A Shelf That Travels</h1>
     <div class="rule"></div>
-    <p class="tagline">A private shelf, opened to anyone who wants to read from it. Borrow a book, sit with it, and send it back into circulation.</p>
-    <p class="creed">Every book here changed something in me before it reached this shelf. I'd rather it kept moving through other hands than sit still gathering dust. Read it, mark it up in your mind if not on the page, and pass it along when you're ready — someone else is always next in line.
-      <span class="sign">— kept by @prajwal.thakare07</span>
-    </p>
-
+    <p class="tagline">A private shelf, opened to anyone who wants to read from it. Borrow a real hard copy, hold it, sit with it, and send it back into circulation.</p>
     <div class="howitworks">
       <div><b>First</b><span>Browse the shelf</span></div>
-      <div><b>Then</b><span>Write on Instagram</span></div>
+      <div><b>Then</b><span>Message on Instagram</span></div>
       <div><b>Finally</b><span>Read it, return it</span></div>
     </div>
   </header>
@@ -412,15 +479,27 @@
   <p class="shelf-label">On the Shelf</p>
   <div class="grid" id="bookGrid"></div>
 
+  <section class="keeper">
+    <p class="creed">Every book here changed something in me before it reached this shelf. I'd rather it kept moving through other hands than sit still gathering dust. Read it, mark it up in your mind if not on the page, and pass it along when you're ready — someone else is always next in line.
+      <span class="sign">— kept by Daniil</span>
+    </p>
+
+    <blockquote class="promise">
+      <span class="promise-label">The Promise</span>
+      <p>One new book walks through this door every month. The shelf may grow slowly, but it will never go quiet.</p>
+      <span class="promise-sign">— Daniil</span>
+    </blockquote>
+  </section>
+
   <footer>
-    A small library, kept by <a href="https://www.instagram.com/prajwal.thakare07" target="_blank" rel="noopener">@prajwal.thakare07</a>
+    A small library, kept by <a href="https://www.instagram.com/prajwal.thakare07" target="_blank" rel="noopener">Daniil</a>
   </footer>
 
 </div>
 </div>
 </div>
 
-<div id="scrollHint" class="scroll-hint">↓ Scroll for more books</div>
+<div id="scrollHint" class="scroll-hint">↓ Scroll down</div>
 
 <script>
   // ============================================
