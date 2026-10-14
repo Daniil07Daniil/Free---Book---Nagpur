@@ -553,7 +553,7 @@
   const cornerSvg = `<svg class="corner" viewBox="0 0 22 22"><path d="M1 21 V7 Q1 1 7 1 H21"/><circle cx="7" cy="7" r="1.4" fill="#A9814B" stroke="none"/></svg>`;
 
   books.forEach((book, i) => {
-    const callNo = `${book.category} · ${String(i + 1).padStart(3, '0')}`;
+    const callNo = book.category;
 
     const plate = document.createElement('div');
     plate.className = 'plate';
